@@ -1,0 +1,21 @@
+<h1>What year was your car manufactured</h1>
+<form action="/car_status" method="POST">
+  <select name="year">
+    <%=
+      str="";
+      2017.downto(1900).each do |n|
+        if @year == n
+          str += "<option selected value=\"#{n}\">#{n}</option>\n"
+        else
+          str += "<option value=\"#{n}\">#{n}</option>\n"
+        end
+        #puts n
+      end
+      puts str
+      str
+    %>
+  </select>
+  <input type="submit">
+</form>
+
+<h2>The car is categorized as: <%= @time_period %></h2>

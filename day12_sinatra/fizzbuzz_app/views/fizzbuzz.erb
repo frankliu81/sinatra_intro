@@ -1,0 +1,32 @@
+<!-- http://localhost:4567/fizzbuzz?number1=3&number2=5 -->
+<h1>FizzBuzz</h1>
+
+<form action="/fizzbuzz" method="GET">
+  <label>Number 1</label>
+  <br>
+  <input name="number1" type="text">
+  <br>
+  <label>Number 2</label>
+  <br>
+  <input name="number2" type="text">
+  <br>
+  <input type="submit">
+</form>
+
+<% puts @number1 %>
+<% puts @number2 %>
+<% if @number1 > 0 && @number2 > 0  %>
+<div>
+  <% (1..100).each do |x| %>
+  <%    if x % @number1 == 0 && x % @number2 == 0 %>
+        <p>FIZZBUZZ</p>
+  <%    elsif x % @number1 == 0 %>
+        <p>Fizz</p>
+  <%    elsif x % @number2 == 0 %>
+        <p>Buzz</p>
+  <%    else %>
+        <p><%= x %></p>
+  <%    end %>
+  <% end %>
+</div>
+<% end %>

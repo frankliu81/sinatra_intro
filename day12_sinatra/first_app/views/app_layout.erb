@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <title><%= @title || "My First Sinatra App" %></title> -->
+    <title><%= @title %></title>
+  </head>
+  <body>
+    <a href ="/">Home</a>
+    <a href ="/about">About</a>
+    <a href ="/greeting">Greeting</a>
+    <a href ="/calculator">Calculator</a>
+    <a href ="/car_status">Car Status</a>
+    <a href ="/company">Random Company</a>
+    <a href ="/convert">Convert C to F</a>
+    <% if true %>
+    <%= yield %>
+    <% end %>
+  </body>
+</html>
+
+<!--
+
+erb-helper
+ctrl shift . (cmd + shift + .) : <%= %> putting whatever value it has into html
+      insert the value of the impression
+ctr . (cmd + .) : <% %> apply the ruby logic, execute the code
+ctr shift 3 (cmd + shift + 3): <%# %> commenting
+
+-->

@@ -1,0 +1,10 @@
+<h1>Pick Random Dude</h1>
+<form action="/pick_random" method="POST">
+  <textarea name="group" rows=8 cols=40><%= @group %></textarea>
+  <br>
+  <input type="submit">
+</form>
+
+<div>
+  <%= @lucky_dude %>
+</div>

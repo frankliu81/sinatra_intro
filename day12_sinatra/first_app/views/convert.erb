@@ -1,0 +1,10 @@
+<h2>Convert from Celsius to Fahrenheit</h2>
+<form action="/convert" method="POST">
+  <input type="text" name="celsius" value="<%= @celsius %>">
+  <input type="submit" value="Convert!">
+</form>
+
+<!-- prefer string interpolation -->
+<!-- <%# <h2>The temperature in F is: <%= "%.2f" % @fahrenheit %> &deg;C</h2> %> -->
+
+<h2><%= "#{@celsius} &deg;C is #{@fahrenheit} &deg;F" %></h2>

@@ -1,0 +1,44 @@
+<h2>Welcome to the Calculator</h2>
+<form action="/calculator" method="POST">
+  <input type="text" name="val1" value="<%=@val1 %>">
+  <select name="operator">
+
+    <option <%= @operator == "+"? selected="selected" : nil%> value="+">+</option>
+    <option <%= @operator == "-"? selected="selected" : nil%> value="-">-</option>
+    <option <%= @operator == "*"? selected="selected" : nil%> value="*">*</option>
+    <option <%= @operator == "/"? selected="selected" : nil%> value="/">/</option>
+
+
+    <!-- dan's solution - extra dropdown -->
+    <!-- <option selected><%= @operator %></option>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option> -->
+
+    <!-- greg's solution -->
+    <!-- <% for i in ["+","-","*","/"] %>
+    <option <%= "selected" if @operator == i%> value=<%= i%>><%= i%></option>
+    <% end%> -->
+
+    <!-- my original solution
+    <option <%= if @operator == "+"
+                  selected="selected"
+                end                 %> value="+">+</option>
+    <option <%= if @operator == "-"
+                  selected="selected"
+                end                 %> value="-">-</option>
+    <option <%= if @operator == "*"
+                  selected="selected"
+                end                 %> value="*">*</option>
+    <option <%= if @operator == "/"
+                  selected="selected"
+                end                 %> value="/">/</option> --> -->
+  </select>
+  <input type="text" name="val2" value="<%=@val2%>">
+  <input type="submit">
+  <br>
+  <textarea name="history"><%= @history%></textarea>
+</form>
+
+<h2>Result: <%= @result %></h2>

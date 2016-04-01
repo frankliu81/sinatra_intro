@@ -1,0 +1,11 @@
+<h1>Your Personality is: </h1>
+<h1><%= @result %></h1>
+<% if @result == "Rational" %>
+  <img src="/images/rational.jpeg">
+<% elsif @result == "Guardian" %>
+  <img src="/images/guardian.png">
+<% elsif @result == "Artisan" %>
+  <img src="/images/artisan.jpeg">
+<% elsif @result == "Idealist" %>
+  <img src="/images/idealist.jpeg">
+<% end %>

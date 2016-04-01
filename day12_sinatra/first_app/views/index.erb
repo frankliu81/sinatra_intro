@@ -1,0 +1,37 @@
+<h1>Hello! I am inside index.erb</h1>
+
+
+<!-- either works renders fine, and server log shows it-->
+<!-- <%= puts "are you there?" %> -->
+<!-- <% puts "are you there?" %> -->
+
+<!-- when you want something to show up in the server log, use puts -->
+<!-- when you want to render to the page, use the = sign -->
+<!-- <%= a = 10 %> -->
+
+<!-- <%# <%= erb(:about, {layout: :app_layout}) %> %> -->
+
+<!-- html comment -->
+<%# ruby comment %>
+
+<!-- <% if a > 5 %>
+  <%= "<p>Large Number</p>" %>
+<% else %>
+  <p>Small Number</p>
+<% end %>
+
+<p>Today is <%= Time.now.strftime('%A') %></p>
+
+<% my_array = [1,2,3] %>
+<ul>
+  <% my_array.each do |x| %>
+    <li><%= x %></li>
+  <% end %>
+</ul>
+
+<%
+my_array = [1,2,3]
+my_array.each do |x|
+  puts x
+end
+%> -->
