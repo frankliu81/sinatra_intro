@@ -1,0 +1,12 @@
+<h2>Create Task</h2>
+<link rel="stylesheet" href="/css/task_style.css">
+
+<form action="/create_task" method="POST">
+  <label for="title-id">Title</label>
+  <input class="title" name="title" type="text" id="title-id" value="<%= @title_filler %>"/>
+  <div></div>
+  <label for="note-id">Note</label>
+  <textarea class="note" name="note" cols="40" rows="10" id="note-id"><%= @note_filler %></textarea>
+  <div></div>
+  <input type="submit">
+</form>

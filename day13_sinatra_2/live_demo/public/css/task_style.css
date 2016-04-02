@@ -1,0 +1,76 @@
+.tasks-container{
+  width: 50%;
+}
+
+/*.task-container{
+  width: 100%;
+  display: inline-block
+}*/
+
+.list-container{
+  width: 100%;
+  /*display: inline-block;*/
+  display: list-item;
+  list-style-position: inside;
+}
+
+/*
+.task-number {
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  border: 1px solid black;
+  width: 12%;
+}*/
+
+
+.task-item {
+  display: inline-block;
+  /* width and height is 100% of the .task-container*/
+  width: 85%;
+  height: 100%;
+  border: 1px solid black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+}
+
+.delete-button{
+  display: inline-block;
+  /*float: right;*/
+  height: 100%;
+}
+/* for create task page */
+.note
+{
+  vertical-align: top;
+  width: 40%;
+}
+
+.title
+{
+  width: 40%;
+}
+
+/* flexbox */
+.task-item-note{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  border: 1px solid black;
+  /* hidden by default */
+  display: none;
+}
+
+/* testing long list items */
+/*#test li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#test {
+  list-style-position: inside;
+}*/

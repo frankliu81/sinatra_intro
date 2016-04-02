@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title || "My App" %></title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <a href ="/">Home</a>
+    |
+    <!-- if you don't use a slash, then it will be a relative path -->
+    <a href ="/converter">Converter</a>
+    <br >
+    Last Temp: <%= session[:last_temp] %>
+    Visit Count: <%= session[:visit_count] %>
+    <form action="/reset_visit_count" method="POST" id="reset-form">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="Reset Visit Count">
+    </form>
+    <hr>
+    <%= yield %>
+  </body>
+</html>

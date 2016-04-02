@@ -1,0 +1,16 @@
+<h1>Language Preference</h1>
+<form action="/language_preference" method="post">
+
+  <input name="name" type="text" value="<%= session[:name] %>"/>
+
+  <select name="language_preference">
+    <% LANG_ARR.each do |x| %>
+      <option value=<%= x.downcase %>
+         <%= "selected" if session[:language_preference] == x.downcase %>>
+       <%= x %> </options>
+    <% end %>
+  </select>
+
+  <input type="submit"/>
+
+</form>

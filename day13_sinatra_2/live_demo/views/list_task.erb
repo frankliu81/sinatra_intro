@@ -1,0 +1,47 @@
+<h2>Task List</h2>
+<link rel="stylesheet" href="/css/task_style.css">
+<% if session[:task_list] %>
+  <div class="tasks-container">
+  <!-- <ul style="list-style: none;"> -->
+  <ol class="list-container">
+
+    <% session[:task_list].each_with_index do |task_hash, index| %>
+
+      <div class="task-container" id="task-container-id-<%=index%>">
+        <!-- <div class="task-number">
+          <%=index+1%>
+        </div> -->
+
+        <li class="task-item">
+          <%= task_hash.keys[0] %>
+        </li>
+      </div>
+
+
+      <form  class="delete-button" action="/delete_task" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="hidden" name="delete_task_index" value="<%=index%>">
+        <input type="submit" value="X">
+      </form>
+    <% end %>
+  </ol>
+  </div>
+<% end %>
+
+<form action="/create_task">
+    <input type="submit" value="Create Task">
+</form>
+
+<div class="task-item-note">
+</div>
+
+<!-- testing long list items -->
+<!-- http://jsfiddle.net/skram/Tmz6C/2/ -->
+<!-- <ul id="test" style="width:100px;">
+    <li>test1</li>
+    <li>test1</li>
+    <li>toooooooooooooooooo loooooooooooooooooonnnnnnnnnnnnnnggggggg</li>
+    <li>test1</li>
+    <li>test1</li>
+    <li>test1</li>
+</ul> -->

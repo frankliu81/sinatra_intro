@@ -1,0 +1,10 @@
+<h1>Yar! Insert a list of numbers, mateee!</h1>
+<% if @max_number %>
+  <p>
+     The maximum number is : <%= @max_number %>
+  </p>
+<% end %>
+<form action="/" method="post">
+  <input name="number_list" type="text" value="<%= @number_list %>"/>
+  <input type="submit" value="Get max" />
+</form>

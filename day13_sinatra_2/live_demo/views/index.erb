@@ -1,0 +1,7 @@
+<% if session[:language_preference] == "english" || !session[:language_preference]%>
+  <h1>Hello <%= session[:name] %>, how is your day today?</h1>
+<% elsif session[:language_preference] == "french" %>
+  <h1>Bonjour <%= session[:name] %>, comment se passe ta journée aujourd'hui?</h1>
+<% elsif session[:language_preference] == "spanish" %>
+    <h1>Hola <%= session[:name] %>, cómo es tu día hoy?</h1>
+<% end %>
