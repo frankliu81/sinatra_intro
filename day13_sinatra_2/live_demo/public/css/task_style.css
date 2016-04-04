@@ -1,47 +1,23 @@
-.tasks-container{
-  width: 50%;
-}
+/* common */
 
-/*.task-container{
-  width: 100%;
-  display: inline-block
-}*/
+.btn-submit {
+  background-color:CornflowerBlue ;
+  color:white;
+  border-radius: 5px;
+  float: left;
+  /* position absolute have problem with parent height
+  because it is taken out of the flow */
+  /*position: absolute;*/
 
-.list-container{
-  width: 100%;
-  /*display: inline-block;*/
-  display: list-item;
-  list-style-position: inside;
-}
-
-/*
-.task-number {
-  display: inline-block;
-  height: 100%;
-  text-align: center;
-  border: 1px solid black;
-  width: 12%;
-}*/
-
-
-.task-item {
-  display: inline-block;
-  /* width and height is 100% of the .task-container*/
-  width: 85%;
-  height: 100%;
-  border: 1px solid black;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  margin-bottom: 5%;
 
 }
 
-.delete-button{
-  display: inline-block;
-  /*float: right;*/
-  height: 100%;
+.my-form-group {
+    margin-bottom: 15px;
 }
-/* for create task page */
+
+/* create_task.erb */
 .note
 {
   vertical-align: top;
@@ -53,24 +29,55 @@
   width: 40%;
 }
 
-/* flexbox */
+/* list-task.erb */
+.tasks-container{
+  width: 50%;
+}
+
+.list-container{
+  display: table;
+  width: 100%;
+}
+
+.list-container__group{
+  display: table-row;
+  width: 100%;
+}
+
+.list-container__group__item {
+  display: table-cell;
+  width: 85%;
+  /*The list-style-position property specifies if the list-item markers
+  should appear inside the content flow.*/
+  /*list-style-position: inside;*/
+
+  /* ellipsis overflow */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  border: 1px solid black;
+}
+
+
+.list-container__group__addon {
+  width: 15%;
+  display: table-cell;
+}
+
+.btn-create-task {
+  margin-top: 2%;
+}
+
 .task-item-note{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* flexbox cannot be absolutely positioned)
+  display: flex;  /* flexbox */
+  /*align-items: center;*/
+  /*justify-content: center;*/
   width: 50%;
   border: 1px solid black;
   /* hidden by default */
-  display: none;
+  visibility: hidden;
+  position: fixed;
+  top: 50px;
 }
-
-/* testing long list items */
-/*#test li {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#test {
-  list-style-position: inside;
-}*/

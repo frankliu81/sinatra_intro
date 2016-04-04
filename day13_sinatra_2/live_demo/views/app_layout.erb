@@ -6,16 +6,23 @@
     <!-- http://getbootstrap.com/getting-started/ -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/task_style.css">
+
     <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
     <script   type="text/javascript" src="/js/main.js"></script>
+
   </head>
   <body>
-    <a href ="/">Home</a>
-    <a href ="/max_number">Max Number</a>|
-    <a href ="/bill_splitter">Bill Splitter</a>|
-    <a href ="/language_preference">Language Preference</a>|
-    <a href ="/create_task">Create Task</a>|
-    <a href ="/list_task">List Task</a>
-    <%= yield %>
+    <div class="container">
+      <a href ="/">Home</a>
+      <a href ="/max_number">Max Number</a>|
+      <a href ="/bill_splitter">Bill Splitter</a>|
+      <a href ="/language_preference">Language Preference</a>|
+      <a href ="/create_task">Create Task</a>|
+      <a href ="/list_task">List Task</a>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -89,16 +89,22 @@ post "/create_task" do
 
   if !session[:task_list]
     session[:task_list] = []
+    session[:task_list].push(@task_hash)
   else
     session[:task_list].push(@task_hash)
   end
 
+  puts "===== session[:task_list]: ====="
   puts session[:task_list]
 
   redirect to("/list_task")
 end
 
 get "/list_task" do
+
+  # if session[:task_list]
+  #   puts session[:task_list][0].keys
+  # end
 
   erb :list_task, layout: :app_layout;
 end
@@ -113,12 +119,14 @@ end
 get "/view_task_note" do
   #puts "inside view_task_note"
   content_type 'application/json'
-  taskId = params[:taskId].to_i
+  taskIndex = params[:taskIndex].to_i
+
   #puts session[:task_list][taskId].keys[0]
   #puts session[:task_list][taskId].values[0]
   # values[0] is the first value of the task_hash, which is the task note
   # ruby on rails has to_json
   #{ :note => session[:task_list][taskId].values[0] }.to_json
   content_type :json
-  {:note => session[:task_list][taskId].values[0]}.to_json
+  # puts taskIndex;
+  {:note => session[:task_list][taskIndex].values[0]}.to_json
 end

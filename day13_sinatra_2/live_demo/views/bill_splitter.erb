@@ -1,22 +1,23 @@
 <h1>Bill Splitter</h1>
 
-<link rel="stylesheet" href="/css/bill_splitter_style.css">
+<link rel="stylesheet" href="/css/bill_splitter_style.css">  <!-- <form action="/bill_splitter" method="POST">
+    <div>
+      <label for="amount-id">Amount</label>
+      <div class="input-group-add-on">$</div>
+      <input type="text" name="amount" id="amount-id" value="<%= @amount %>">
 
-<form action="/bill_splitter" method="POST">
-<!--
-  <div>
-    <label for="amount-id">Amount</label>
-    <div class="input-group-add-on">%</div>
-    <input type="text" name="amount" id="amount-id" value="<%= @amount %>">
-
-  </div>
-  <input type="submit" value="Submit" /> -->
-
+    </div>
+    <input type="submit" value="Submit" />
+  </form>
+ -->
 
 
-  <div class="col-md-6">
-    <form action="/bill_splitter" method="post">
-      <div class="form-group">
+
+<div class="col-md-6">
+  <form action="/bill_splitter" method="post">
+
+    <div class = "row">
+      <div class="form-group col-md-6">
         <label for="amount">Amount</label>
         <div class="input-group">
            <div class="input-group-addon">$</div>
@@ -24,33 +25,44 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="tax">Tax</label>
-        <div class="input-group">
-           <div class="input-group-addon">%</div>
-           <input type="text" id="tax" name="tax" class="form-control" value="<%= @tax %>">
-        </div>
+      <div class="col-md-6">
+        <label>Testing Grid</label>
+        <input class="form-control" type="text"/>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="tip">Tip</label>
-        <div class="input-group">
-           <div class="input-group-addon">%</div>
-           <input type="text" id="tip" name="tip" class="form-control" value="<%= @tip %>">
-        </div>
+
+    <div class="form-group">
+      <label for="tax">Tax</label>
+      <div class="input-group">
+         <div class="input-group-addon">%</div>
+         <input type="text" id="tax" name="tax" class="form-control" value="<%= @tax %>">
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="count">Number Of People</label>
-        <input type="text" id="count" name="count" class="form-control" value="<%= @count %>">
+    <div class="form-group">
+      <label for="tip">Tip</label>
+      <div class="input-group">
+         <div class="input-group-addon">%</div>
+         <input type="text" id="tip" name="tip" class="form-control" value="<%= @tip %>">
+         <div class="input-group-btn">
+           <button class="btn btn-secondary" type="button">Testing!</button>
+         </div>
       </div>
+    </div>
 
-      <input type="submit" value="Submit" class="btn btn-primary">
-    </form>
-  </div>
+    <div class="form-group">
+      <label for="count">Number Of People</label>
+      <input type="text" id="count" name="count" class="form-control" value="<%= @count %>">
+    </div>
 
-  <%# binding.pry %>
-  <% if @split_amount %>
-    Every Person must pay <%= "%.2f" % @split_amount %>
-  <% end %>
-</form>
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+</div>
+
+
+
+<%# binding.pry %>
+<% if @split_amount %>
+  Every Person must pay <%= "%.2f" % @split_amount %>
+<% end %>

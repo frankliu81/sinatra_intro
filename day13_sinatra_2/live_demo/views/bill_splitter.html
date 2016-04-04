@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sinatra Apps</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="html, tutorial, learning">
+    <meta name="description" content="This is a page about HTML and CSS">
+    <link type="text/css" rel="stylesheet" href="/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/">Home</a> |
+      <a href="/company_name">Company Name</a> |
+      <a href="/temp_convertor">Temp Convertor</a> |
+      <a href="/calculator">Calculator</a> |
+      <a href="/calculator_1">Calculator 1</a> |
+      <a href="/bill_splitter">Bill Splitter</a> |
+      <a href="/pick_random">Pick Random</a> |
+      <a href="/team_picker">Team Picker</a>
+      <hr>
+      <div class="col-md-6">
+        <form action="/bill_splitter" method="post">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <div class="input-group">
+               <div class="input-group-addon">$</div>
+               <input type="text" id="amount" name="amount" class="form-control" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tax">Tax</label>
+            <div class="input-group">
+               <div class="input-group-addon">%</div>
+               <input type="text" id="tax" name="tax" class="form-control" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tip">Tip</label>
+            <div class="input-group">
+               <div class="input-group-addon">%</div>
+               <input type="text" id="tip" name="tip" class="form-control" value="">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="count">Number Of People</label>
+            <input type="text" id="count" name="count" class="form-control" value="">
+          </div>
+
+          <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+      </div>
+
+        <div class="row">
+          <div class="col-md-12">
+
+          </div>
+        </div>
+
+    </div>
+  </body>
+</html>
