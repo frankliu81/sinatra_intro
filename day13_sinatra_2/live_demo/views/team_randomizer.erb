@@ -1,0 +1,43 @@
+<h1>Team Randomize</h1>
+​
+<div class = "randomizer-content">
+
+  <div class = "randomizer-content-left">
+
+  <form action="/team_randomizer" method="post">
+    <label for="n_ames"><h3>Enter the names you want to randomize:</h3></label>
+    <textarea class="randomizer-text-area-input" name="name_list" rows="2" cols="45" placeholder="e.g. Jim, Charlie, Angelo" id="n_ames"><%= session[:name_list]%></textarea> <br> <br>
+  ​
+    <label for="p_pl">Number of people</label>
+    <input type="radio" name="randomizer_option" <%="checked" if session[:randomizer_option] =="num_ppl"%> value="num_ppl"  id="p_pl">
+    <label for="t_eam">Number of teams</label>
+    <input type="radio" name="randomizer_option" <%= "checked" if session[:randomizer_option] =="num_team"%> value="num_team" id="t_eam"> <br>
+  ​
+    <!-- <label for=""><h3>Number of students per tizzle:</h3></label> -->
+    <textarea class="randomizer-text-area-input"  name="number" rows="2" cols="45" placeholder="e.g. 2"><%= session[:number]%></textarea> <br> <br>
+  ​
+    <input type="submit" value="Randomize">
+  </form>
+  ​
+  </div>
+  ​
+  <div class = "randomizer-content-right">
+    <div>
+      ​<% if @name_arr %>
+        <textarea class="randomizer-text-area-input" rows="15" cols="45">
+    The teams are:
+    <% @array_of_teams.each_with_index do |team, index| %>
+    Team <%= index+1 %>:
+    <%= team.join(", ") %>
+    <% end %>
+      </textarea>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<% if @number_of_teams_error %>
+  <p><strong> Error: The number of teams should be less than the number of members! </strong></p>
+<% end %>

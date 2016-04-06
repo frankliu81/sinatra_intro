@@ -1,4 +1,45 @@
+// polling
+function doPoll(){
+  // $.post('ajax/test.html', function(data) {
+  //     alert(data);  // process results here
+  //     setTimeout(doPoll,5000);
+  // });
+
+  // Tries refresh whole page if in list_task view every 3 secs:
+  // this will constantly refresh
+  // http://stackoverflow.com/questions/7694619/how-to-send-a-get-request-with-params-without-ajax
+  // if (window.location.pathname == "/list_task")
+  // {
+  //   console.log("doPoll list_task");
+  //   $('html').load('/list_task');
+  //   setTimeout(doPoll,3000);
+  // }
+
+  // ajax call (TODO: define /list_task_api)
+  // $.ajax({
+  //     type: "GET",
+  //     url: "/list_task_api",
+  //     data: { },
+  //     }).done(function(data) {
+  //       console.log(data.taskList);
+  //     });
+  //
+  //     setTimeout(doPoll,3000);
+  // });
+
+}
+
+// Refresh page every three seconds, this will wipe out the note though:
+// setTimeout(function(){
+//   if (window.location.pathname == "/list_task")
+//   {
+//     window.location.reload(1);
+//   }
+// }, 3000);
+
 $(document).ready(function(){
+
+
     $(".task-item").click(function(e){
       var $taskItemNote =  $(".task-item-note");
       taskItemIndex = $(this).attr('id').replace('task-item-', '');
@@ -31,8 +72,6 @@ $(document).ready(function(){
             $taskItemNote.css('left', (deleteBtnPosition.left + 50).toString() + "px");
             //console.log("after setting top")
             //console.log($taskItemNote.css('top'));
-
-
 
 
           e.preventDefault();

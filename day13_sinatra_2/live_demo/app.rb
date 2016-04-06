@@ -14,6 +14,9 @@ LANG_ARR = ["English", "French", "Spanish"]
 enable :sessions
 use Rack::MethodOverride
 
+set :public_folder, 'public'
+
+
 get "/" do
   erb :index, layout: :app_layout;
 end
@@ -109,6 +112,16 @@ get "/list_task" do
   erb :list_task, layout: :app_layout;
 end
 
+get "/list_task" do
+
+  # if session[:task_list]
+  #   puts session[:task_list][0].keys
+  # end
+
+  erb :list_task, layout: :app_layout;
+end
+
+
 delete "/delete_task" do
   session[:task_list].delete_at(params[:delete_task_index].to_i)
   # redirect to ("/")
@@ -129,4 +142,93 @@ get "/view_task_note" do
   content_type :json
   # puts taskIndex;
   {:note => session[:task_list][taskIndex].values[0]}.to_json
+end
+
+get "/team_randomizer" do
+  erb :team_randomizer, layout: :app_layout
+end
+
+post "/team_randomizer" do
+  @array_of_teams = []
+  @name_arr = params[:name_list].split(", ").shuffle!
+  @name_arr_length = @name_arr.length
+  session[:number] = params[:number]
+  session[:name_list] = params[:name_list]
+
+  if params[:randomizer_option] == "num_ppl"
+    @num_per_team = params[:number].to_i
+    session[:randomizer_option] = "num_ppl"
+    puts "@num_per_team"
+    puts @num_per_team
+    puts "@name_arr_length"
+    puts @name_arr_length
+    @number_of_teams = (@name_arr_length / @num_per_team.to_f).ceil
+  elsif params[:randomizer_option] == "num_team"
+    @number_of_teams = params[:number].to_i
+    puts "@number_of_teams"
+    puts @number_of_teams
+    puts " @name_arr_length"
+    puts @name_arr_length
+    session[:randomizer_option] = "num_team"
+  end
+
+
+  if @number_of_teams > @name_arr_length
+    @number_of_teams_error = true;
+    return erb :team_randomizer, layout: :app_layout
+  end
+
+  # Owen's implementation for num_per_team
+  # if @num_per_team
+  #
+  #   @number_of_teams = (@name_arr_length / @num_per_team.to_f).ceil
+  #   for x in 1..@name_arr_length
+  #     @temp_array = []
+  #     @num_per_team.times do
+  #       @temp_array << @name_arr.pop
+  #     end
+  #
+  #     @array_of_teams.push(@temp_array)
+  #     # I might have to iterate through the arrays to delete the nils if they get printed
+  #     # if !@temp_array.all? { |e| e == nil }
+  #     #   @array_of_teams.push(@temp_array)
+  #     # end
+  #   end
+  # end
+
+  if @number_of_teams
+    #@number_of_people = @name_arr_length
+    # @people_per_team = (@number_of_people / @team_num.to_f).ceil
+
+    # Initialize empty arrays for each team
+    for i in 1..@number_of_teams
+      @array_of_teams.push([])
+    end
+
+
+    for i in 0..@name_arr_length - 1
+      index_to_team = i % @number_of_teams
+
+      @array_of_teams[index_to_team].push(@name_arr.pop)
+      puts "Array of teams:"
+      print @array_of_teams
+      puts
+    end
+      # for all the team except the last fill them with the max number of people per team
+    # for x in 1..@team_num
+    #   @temp_array = []
+    #   @people_per_team.times do
+    #     @temp_array.push(@name_arr.pop)
+    #   end
+    #   @array_of_teams.push(@temp_array)
+    #   puts "Array of teams after push 1:"
+    #   puts @array_of_teams
+    # end​
+    #   for the remaining team fill it with the left over people
+    # @array_of_teams.push(@name_arr)
+    # puts "Array of teams after push 2:"
+    # puts @array_of_teams
+  end
+
+  erb :team_randomizer, layout: :app_layout
 end

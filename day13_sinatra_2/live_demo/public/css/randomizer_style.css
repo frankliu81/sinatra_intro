@@ -1,0 +1,28 @@
+.randomizer-text-area-input
+{
+  width: 80%;
+}
+
+.randomizer-text-area-output
+{
+  width: 80%;
+}
+
+.randomizer-content
+{
+  width: 100%;
+}
+
+.randomizer-content-left
+{
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.randomizer-content-right
+{
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
